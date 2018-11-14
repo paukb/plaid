@@ -21,6 +21,7 @@ package io.plaidapp.core.util
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.browser.customtabs.CustomTabsSession
 import androidx.core.content.ContextCompat
@@ -43,6 +44,13 @@ fun intentTo(addressableActivity: AddressableActivity): Intent {
 }
 
 /**
+ * Create an Intent with [Intent.ACTION_VIEW] to an [AddressableActivity.uri].
+ */
+fun intentToUri(addressableActivity: AddressableActivity): Intent {
+    return Intent(Intent.ACTION_VIEW, Uri.parse(addressableActivity.uri.orEmpty()))
+}
+
+/**
  * An [android.app.Activity] that can be addressed by an intent.
  */
 interface AddressableActivity {
@@ -50,6 +58,7 @@ interface AddressableActivity {
      * The activity class name.
      */
     val className: String
+    val uri: String
 }
 
 /**
@@ -64,6 +73,7 @@ object Activities {
      */
     object About : AddressableActivity {
         override val className = "$PACKAGE_NAME.about.ui.AboutActivity"
+        override val uri = "http://plaid.io/about"
     }
 
     /**
@@ -75,6 +85,8 @@ object Activities {
          */
         object Login : AddressableActivity {
             override val className = "$PACKAGE_NAME.designernews.ui.login.LoginActivity"
+            override val uri: String
+                get() = TODO("not implemented")
         }
 
         /**
@@ -82,6 +94,8 @@ object Activities {
          */
         object Story : AddressableActivity {
             override val className = "$PACKAGE_NAME.designernews.ui.story.StoryActivity"
+            override val uri: String
+                get() = TODO("not implemented")
             const val EXTRA_STORY_ID = "story_id"
 
             /**
@@ -115,6 +129,8 @@ object Activities {
          */
         object PostStory : AddressableActivity {
             override val className = "$PACKAGE_NAME.designernews.PostNewDesignerNewsStory"
+            override val uri: String
+                get() = TODO("not implemented")
 
             const val RESULT_DRAG_DISMISSED = 3
             const val RESULT_POSTING = 4
@@ -130,6 +146,8 @@ object Activities {
          */
         object Shot : AddressableActivity {
             override val className = "$PACKAGE_NAME.dribbble.ui.shot.ShotActivity"
+            override val uri: String
+                get() = TODO("not implemented")
 
             const val EXTRA_SHOT_ID = "EXTRA_SHOT_ID"
             const val RESULT_EXTRA_SHOT_ID = "RESULT_EXTRA_SHOT_ID"
@@ -141,6 +159,8 @@ object Activities {
      */
     object Search : AddressableActivity {
         override val className = "$PACKAGE_NAME.search.ui.SearchActivity"
+        override val uri: String
+            get() = TODO("not implemented")
 
         const val EXTRA_QUERY = "EXTRA_QUERY"
         const val EXTRA_SAVE_DRIBBBLE = "EXTRA_SAVE_DRIBBBLE"

@@ -340,7 +340,7 @@ public class HomeActivity extends Activity {
                 }
                 return true;
             case R.id.menu_about:
-                startActivity(ActivityHelper.intentTo(Activities.About.INSTANCE),
+                startActivity(ActivityHelper.intentToUri(Activities.About.INSTANCE),
                         ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
                 return true;
         }

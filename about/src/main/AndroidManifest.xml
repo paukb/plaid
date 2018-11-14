@@ -27,14 +27,25 @@
     </dist:module>
 
     <application android:name="io.plaidapp.ui.PlaidApplication">
-    <activity
-        android:name="io.plaidapp.about.ui.AboutActivity"
-        android:theme="@style/Plaid.Translucent.About"
-        android:parentActivityName="io.plaidapp.ui.HomeActivity">
-        <intent-filter>
-            <action android:name="android.intent.action.VIEW" />
-        </intent-filter>
-    </activity>
+        <activity
+            android:name="io.plaidapp.about.ui.AboutActivity"
+            android:theme="@style/Plaid.Translucent.About"
+            android:parentActivityName="io.plaidapp.ui.HomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:scheme="http"
+                    android:host="plaid.io"
+                    android:pathPattern="/about" />
+            </intent-filter>
+        </activity>
     </application>
 </manifest>
 
