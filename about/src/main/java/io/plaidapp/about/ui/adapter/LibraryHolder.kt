@@ -26,7 +26,6 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withC
 import io.plaidapp.about.R
 import io.plaidapp.about.domain.model.Library
 import io.plaidapp.core.util.glide.GlideApp
-import io.plaidapp.R as appR
 
 internal typealias OnClick = (library: Library) -> Unit
 
@@ -57,7 +56,7 @@ internal class LibraryHolder(
         val request = GlideApp.with(image.context)
                 .load(lib.imageUrl)
                 .transition(withCrossFade())
-                .placeholder(appR.drawable.avatar_placeholder)
+                //.placeholder(appR.drawable.avatar_placeholder)
         if (lib.circleCrop) {
             request.circleCrop()
         }

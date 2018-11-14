@@ -34,7 +34,7 @@ import io.plaidapp.core.ui.widget.ElasticDragDismissFrameLayout
 import io.plaidapp.core.util.customtabs.CustomTabActivityHelper
 import io.plaidapp.core.util.event.EventObserver
 import javax.inject.Inject
-import io.plaidapp.R as appR
+import io.plaidapp.core.R as coreR
 
 /**
  * About screen. This displays 3 pages in a ViewPager:
@@ -67,7 +67,7 @@ class AboutActivity : AppCompatActivity() {
 
         pager.apply {
             adapter = AboutPagerAdapter(viewModel.uiModel)
-            pageMargin = resources.getDimensionPixelSize(appR.dimen.spacing_normal)
+            pageMargin = resources.getDimensionPixelSize(coreR.dimen.spacing_normal)
         }
 
         pageIndicator?.setViewPager(pager)
@@ -93,7 +93,7 @@ class AboutActivity : AppCompatActivity() {
                 .setToolbarColor(
                     ContextCompat.getColor(
                         this,
-                        appR.color.primary
+                        coreR.color.primary
                     )
                 )
                 .addDefaultShareMenuItem()
