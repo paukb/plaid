@@ -47,7 +47,7 @@ fun intentTo(addressableActivity: AddressableActivity): Intent {
  * Create an Intent with [Intent.ACTION_VIEW] to an [AddressableActivity.uri].
  */
 fun intentToUri(addressableActivity: AddressableActivity): Intent {
-    return Intent(Intent.ACTION_VIEW, Uri.parse(addressableActivity.uri.orEmpty()))
+    return Intent(Intent.ACTION_VIEW, Uri.parse(addressableActivity.uri))
 }
 
 /**
